@@ -179,10 +179,6 @@ public class UiFactory {
     public static void onLauncherStateOrResumeChanged(Launcher launcher) {
         LauncherState state = launcher.getStateManager().getState();
         DeviceProfile profile = launcher.getDeviceProfile();
-        WindowManagerWrapper.getInstance().setShelfHeight(
-                (state == NORMAL || state == OVERVIEW) && launcher.isUserActive()
-                        && !profile.isVerticalBarLayout(),
-                profile.hotseatBarSizePx);
 
         if (state == NORMAL) {
             launcher.<RecentsView>getOverviewPanel().setSwipeDownShouldLaunchApp(false);
